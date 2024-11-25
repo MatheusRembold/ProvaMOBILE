@@ -1,0 +1,7 @@
+{
+  "name": "pix-app-starter",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

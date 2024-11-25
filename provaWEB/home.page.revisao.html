@@ -1,0 +1,126 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Controle de Finanças</ion-title>
+    </ion-toolbar>
+  
+    
+  </ion-header>
+  
+  
+  
+  <ion-content>
+    <!-- Exibição do Saldo -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Saldo Restante</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>R$ {{ saldo | number: '1.2-2' }}</h2>
+    </ion-card-content>
+  </ion-card>
+  
+   <!-- Exibição do Receitas-->
+   <ion-card>
+    <ion-card-header>
+      <ion-card-title>Total de Receitas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Total de Receitas: R$ {{ getTotalReceitas() | number: '1.2-2' }}</h2>
+    </ion-card-content>
+  </ion-card>
+  
+  <!-- Exibição do Despesas-->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Total de Despesas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Total de Despesas: R$ {{ getTotalDespesas() | number: '1.2-2' }}</h2>
+    </ion-card-content>
+  </ion-card>
+  
+    <!-- Formulário para Receitas -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Adicionar Receita</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Descrição</ion-label>
+          <ion-input [(ngModel)]="descricao" placeholder="Digite uma descrição"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Valor</ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="valor"
+            placeholder="Digite o valor"
+          ></ion-input>
+        </ion-item>
+        <ion-button expand="block" (click)="adicionarReceita()">Adicionar Receita</ion-button>
+      </ion-card-content>
+    </ion-card>
+  
+    <!-- Formulário para Despesas -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Adicionar Despesa</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Descrição</ion-label>
+          <ion-input [(ngModel)]="descricao" placeholder="Digite uma descrição"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Valor</ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="valor"
+            placeholder="Digite o valor"
+          ></ion-input>
+        </ion-item>
+        <ion-button expand="block" (click)="adicionarDespesa()">Adicionar Despesa</ion-button>
+      </ion-card-content>
+    </ion-card>
+  
+    
+  
+  
+    <!-- Lista de Receitas -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Receitas</ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+  
+        <ion-list>
+          <ion-item *ngFor="let receita of receitas">
+            <ion-label>
+              <h2>{{ receita.descricao }}</h2>
+              <p>R$ {{ receita.valor | number: '1.2-2' }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        
+      </ion-card-content>
+  
+    </ion-card>
+  
+    <!-- Lista de Despesas -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Despesas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let despesa of despesas">
+            <ion-label>
+              <h2>{{ despesa.descricao }}</h2>
+              <p>R$ {{ despesa.valor | number: '1.2-2' }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

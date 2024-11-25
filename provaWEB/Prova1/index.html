@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const postagens = [
+            {
+                autor: {
+                    nome: 'João Silva',
+                    idade: 30,
+                    paisDeOrigem: 'Brasil'
+                },
+                texto: 'Hoje o dia está lindo!',
+                curtidas: 120,
+                data: new Date('2023-10-01')
+            },
+            {
+                autor: {
+                    nome: 'Maria Oliveira',
+                    idade: 25,
+                    paisDeOrigem: 'Portugal'
+                },
+                texto: 'Acabei de ler um livro incrível.',
+                curtidas: 85,
+                data: new Date('2023-10-02')
+            },
+            {
+                autor: {
+                    nome: 'Carlos Pereira',
+                    idade: 28,
+                    paisDeOrigem: 'Angola'
+                },
+                texto: 'Alguém recomenda um bom filme?',
+                curtidas: 45,
+                data: new Date('2023-10-03')
+            },
+            {
+                autor: {
+                    nome: 'Ana Costa',
+                    idade: 22,
+                    paisDeOrigem: 'Moçambique'
+                },
+                texto: 'Feliz aniversário para mim!',
+                curtidas: 200,
+                data: new Date('2023-10-04')
+            }
+        ];
+        
+        function listarPostagens() {
+            let output = document.getElementById("postagens_output");
+
+            output.innerHTML = ""
+            postagens.forEach( x =>{               
+                //let paragrafo = document.createElement("p")
+                output.innerHTML = output.innerHTML +
+                 `<p>${x.texto} ${x.autor.nome}</p>`
+                //paragrafo.textContent = `${x.texto} ${x.autor.nome}`
+                //output.appendChild(paragrafo)
+            }
+
+            )
+            
+        }
+    </script>
+
+    <button onclick="listarPostagens()">Listar Publicações</button>
+    <div id="postagens_output">
+
+    </div>
+
+
+
+</body>
+
+</html>

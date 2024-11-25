@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Parágrafo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px ;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 10px;
+        }
+        #container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adicionar Parágrafo</h1>
+    
+    <input type="text" id="inputTexto" placeholder="Digite o texto aqui">
+    
+    <button onclick="adicionarParagrafo()">Adicionar Parágrafo</button>
+    
+    <div id="container"></div>
+
+    <script>
+        function adicionarParagrafo() {
+            const texto = document.getElementById('inputTexto').value;
+            
+            const paragrafo = document.createElement('p');
+            paragrafo.textContent = texto;
+            
+            document.getElementById('container').appendChild(paragrafo);
+            
+            document.getElementById('inputTexto').value = '';
+        }
+    </script>
+</body>
+</html>
